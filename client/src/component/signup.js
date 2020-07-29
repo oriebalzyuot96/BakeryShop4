@@ -13,7 +13,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,7 +25,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -36,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    background:"rgba(0, 0, 0, 0.94)",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -44,23 +42,21 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background:"rgba(0, 0, 0, 0.79)",
+    color:"white"
   },
 }));
-
 export default function SignUp() {
   const classes = useStyles();
-
   const [values, setValues] = React.useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
-
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
     var firstName = document.getElementById("firstName").value;
@@ -82,64 +78,23 @@ export default function SignUp() {
     console.log(user)
     axios
        .post("http://localhost:7000/signup", user)
-      // .then((res) => {
-       
-      //   document.getElementById("accoutCreated").innerText =
-      //     "Account created Successfully! ";
-          
-      //   console.log ("orieb")
-
-      // })
-      // .catch(
-      //   () =>
-      //     (document.getElementById("accoutCreated").innerText =
-      //       "The email is already exists! ")
-      // );
-
-
  .then((res) => {
     console.log(res.data);
     if(res.data === "User authenticated"){
-
-      // return  <Redirect  to="/see" />
-      //console.log(this.props);
-      //this.props.history.push('/SignUpform')}else{
-        alert(' TRY AGAIN!!!')
+        alert('User authenticated')
       }
-
-
   }).catch((error) => {
-
+    alert ("try again ")
       console.log(error)
   });
 
-
-
-// axios.post('http://localhost:6060/signup',user)
-//         .then(function (res) {
-//           console.log(res);
-//           if (res.data === "User authenticated") {
-//             console.log(res.data)
-//           }else{ 
-//             alert(' TRY AGAIN!!!')}
-    
-          
-//         })
-
-
-
-
-
-
-
-    //window.location = "/login"
   };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          {/* <LockOutlinedIcon /> */}
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
@@ -177,12 +132,17 @@ export default function SignUp() {
               <TextField
                 value={values.email}
                 onChange={handleChange("email")}
+<<<<<<< HEAD
+=======
+                variant="outlined"
+                name="email" 
+                label="email"
+                type="email"
+>>>>>>> c002e1d7e4588586f397e1ddcc424276ae2f6abd
                 variant="outlined"
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
-                name="email"
                 autoComplete="email"
               />
             </Grid>
@@ -190,7 +150,6 @@ export default function SignUp() {
               <TextField
                 value={values.password}
                 onChange={handleChange("password")}
-                variant="outlined"
                 required
                 fullWidth
                 name="password"
@@ -202,17 +161,16 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                control={<Checkbox value="allowExtraEmails"  />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
             </Grid>
           </Grid>
-
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="primary" 
             className={classes.submit}
           >
             Sign Up
@@ -234,6 +192,7 @@ export default function SignUp() {
       </Box>
     </Container>
   );
+<<<<<<< HEAD
 }
 // import React from "react";
 // import axios from "axios";
@@ -547,3 +506,6 @@ export default function SignUp() {
 
 //export default SignUp;
 
+=======
+}
+>>>>>>> c002e1d7e4588586f397e1ddcc424276ae2f6abd
