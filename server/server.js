@@ -1,22 +1,7 @@
 
-
-var items = require("./models/dba.js")
-var cors=require("cors")
-// const user=require("./models/dba")
- const bcrypt = require("bcrypt");
-
-const app = express();
-app.use(bodyParser.json());
-app.use(cors())
-// Connect to MongoDB
-//support parsing of application/x-www-form-urlencoded post data
-app.use(bodyParser.urlencoded({ extended: true }));
-//connect between client and server
-app.use(express.static(__dirname, "client"));
-mongoose.connect("mongodb://localhost/user", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv").config(); // this plugin to parse .env file to process.env[variable]
 var cors = require("cors");
 const { connect } = require("./models/db");
@@ -28,6 +13,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 //connect between client and server
 app.use(express.static("/client"));
+mongoose.connection.on("connected", () =>
+  console.log("MongoDB successfully connected")
+);
+// middleware
 
 //routs path
 const users = require("./routs/user");
