@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as RouterLink, useHistory } from 'react-router-dom'
-
+import Avatar from '@material-ui/core/Avatar'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -9,6 +9,7 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import ShopContext from '../context/shop-context'
 
 const theme = createMuiTheme({
+
   palette: {
     secondary: {
       light: '#ab003c',
@@ -35,6 +36,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'flex-start',
   },
+  avatar: {
+   backgroundSize:"200px"
+  },
 }))
 
 export default function ButtonAppBar() {
@@ -43,23 +47,18 @@ export default function ButtonAppBar() {
   const history = useHistory()
 
   const isLoggedInToken = localStorage.getItem('loggedInToken') !== null
-//const totalItems=0
+
   const totalItems = context.cart.reduce((count, curItem) => {
     return count + curItem.quantity
   }, 0)
-console.log(totalItems)
+
   const onLogoutUser = () => {
     // remove token from localStorage
     if (localStorage.getItem('loggedInToken') !== null) {
       localStorage.removeItem('loggedInToken')
     }
-    //localStorage.getItem('cart')
-   // totalItems=0 
-localStorage.removeItem("cart"); 
- 
-//const (totalItems)=0
-
- history.push('/login')
+    localStorage.removeItem("item")
+    history.push('/login')
   }
 
   return (
@@ -70,7 +69,15 @@ localStorage.removeItem("cart");
             root: classes.root,
           }}
         >
-          <Button component={RouterLink} to="/" color="inherit" className={classes.title}>
+
+
+                    <Avatar component={RouterLink} to="/"
+                      aria-label="recipe"
+                      src="https://dynamic.brandcrowd.com/preview/logodraft/1ed57d70-5be9-4d98-9c5d-df3d94923cd3/image/large.png"
+                      className={classes.avatar}
+                    />
+                  
+          <Button  component={RouterLink} to="/" color="inherit" className={classes.title}>
             Bakery
           </Button>
           {isLoggedInToken ? (
@@ -78,9 +85,9 @@ localStorage.removeItem("cart");
             <Button component={RouterLink} to="/categories" color="inherit">
               Categories
             </Button>
-            {/*<Button component={RouterLink} to="/admin" color="inherit">
+            {/* <Button component={RouterLink} to="/admin" color="inherit">
               Admin
-            </Button>*/}
+            </Button> */}
             <Button onClick={onLogoutUser} color="inherit">
               Logout
             </Button>
@@ -97,12 +104,10 @@ localStorage.removeItem("cart");
           )}
 
           <Button component={RouterLink} to="/cart" color="inherit">
-            Cart 
-            
+          Cart  {/* Cart {`(${totalItems})`} */}
           </Button>
         </Toolbar>
       </AppBar>
     </div>
   )
 }
-

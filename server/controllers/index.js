@@ -1,10 +1,12 @@
-var normalizedPath = require('path').join(__dirname)//direction
-//
+//Require al files in a folder 
+
+var normalizedPath = require('path').join(__dirname)
+
 require('fs')
   .readdirSync(normalizedPath)
   .forEach(function(file) {
     if (!file.includes('index')) {
-      var moduleName = file.split('.')[0] //without js
+      var moduleName = file.split('.')[0]
       exports[moduleName] = require('./' + moduleName)
     }
   })

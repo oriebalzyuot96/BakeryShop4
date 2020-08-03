@@ -11,11 +11,18 @@ import ProductCategories from './home'
 
 import Item from './admin'
 
+import Wtem from './location'
+
 import ButtonAppBar from './nav'
 
 import Footer from './footer'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import CheckoutForm from "./checkOutForm";
+
+import AboutOur from "./about";
+
 
 class App extends Component {
   render() {
@@ -31,6 +38,12 @@ class App extends Component {
             <Route exact path="/categories" exact component={Categories} />
             <Route exact path="/categories/:category" exact component={Category} />
             <Route path="/cart" exact component={Cart} />
+            
+            <Route path="/about" exact component={AboutOur} />
+            
+            <Route path="/CheckOutForm" exact component={CheckoutForm} />
+            <Route path="/location" exact component={Wtem} />
+
             <Footer />
           </div>
         </Router>

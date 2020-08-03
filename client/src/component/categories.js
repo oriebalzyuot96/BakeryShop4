@@ -117,11 +117,11 @@ function Categories(props) {
   const classes = styles()
   const history = useHistory()
 
-  // const handleSubmit = function() {
-  //   if (images[0].title === 'cookies') {
-  //     alert('do great')
-  //   }
-  // }
+  const handleSubmit = function() {
+    if (images[0].title === 'cookies') {
+      alert('do great')
+    }
+  }
 
   const images = [
     {

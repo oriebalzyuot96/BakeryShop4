@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar';
-//import MuiAlert from '@material-ui/lab/Alert';
+
 import CssBaseline from '@material-ui/core/CssBaseline'
 import TextField from '@material-ui/core/TextField'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -20,11 +20,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Alert from '@material-ui/core/Container'
 
-// function Alert(props) {
-//   return <MuiAlert elevation={6} variant="filled" {...props} />;
-// }
 
 function Copyright() {
   return (
@@ -101,9 +97,9 @@ export default function Item() {
         headers: { Authorization: `Bearer ${token}` },
       }
 
-      // const bodyParameters = {
-      //   category,
-      // }
+      const bodyParameters = {
+        category,
+      }
 
    const result = await axios
       .post('http://localhost:7000/api/products', items,
@@ -150,11 +146,11 @@ export default function Item() {
         key={'top' + 'center'}
         autoHideDuration={6000}
       >
-       <Alert onClose={() => {
+        {/* <Alert onClose={() => {
           setIsOpen(false)
         }} severity="success">
           This is a success message!
-        </Alert>
+        </Alert> */}
       </Snackbar>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>{/* <LockOutlinedIcon /> */}</Avatar>
