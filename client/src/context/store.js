@@ -110,7 +110,7 @@ const GlobalState = props => {
   const useDataApi = (token, category) => {
 
     React.useEffect(() => {
-      let didCancel = false
+     /// let didCancel = false
 
       const fetchData = async () => {
         dispatch({ type: FETCH_INIT })
@@ -130,21 +130,21 @@ const GlobalState = props => {
             config,
           )
 
-          if (!didCancel && result.status === 201) {
+          if (result.status === 201) {
             dispatch({ type: FETCH_SUCCESS, products: result.data.data.products })
           }
         } catch (error) {
-          if (!didCancel) {
+          
             dispatch({ type: FETCH_FAILURE })
-          }
+         
         }
       }
 
       fetchData()
 
-      return () => {
-        didCancel = true
-      }
+      // return () => {
+      //   didCancel = true
+      // }
     }, [category])
 
     return state

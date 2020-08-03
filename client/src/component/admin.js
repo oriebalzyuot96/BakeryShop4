@@ -101,9 +101,9 @@ export default function Item() {
         headers: { Authorization: `Bearer ${token}` },
       }
 
-      const bodyParameters = {
-        category,
-      }
+      // const bodyParameters = {
+      //   category,
+      // }
 
    const result = await axios
       .post('http://localhost:7000/api/products', items,

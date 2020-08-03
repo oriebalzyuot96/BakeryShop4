@@ -117,11 +117,11 @@ function Categories(props) {
   const classes = styles()
   const history = useHistory()
 
-  const handleSubmit = function() {
-    if (images[0].title === 'cookies') {
-      alert('do great')
-    }
-  }
+  // const handleSubmit = function() {
+  //   if (images[0].title === 'cookies') {
+  //     alert('do great')
+  //   }
+  // }
 
   const images = [
     {
@@ -221,8 +221,8 @@ function Categories(props) {
 }
 //console.log(image.title)
 
-Categories.propTypes = {
-  classes: PropTypes.object.isRequired,
-}
+// Categories.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// }
 
 export default withStyles(styles)(Categories)

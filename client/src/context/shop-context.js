@@ -9,3 +9,4 @@ export default React.createContext({
   removeProductFromCart: productId => {},
   useDataApi: (token, category) => {},
 })
+

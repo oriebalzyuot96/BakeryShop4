@@ -1,3 +1,6 @@
+//to decode token ..and get user id and check if defined in my data base 
+
+
 const JWT = require('jsonwebtoken')
 const { User } = require('../models')
 

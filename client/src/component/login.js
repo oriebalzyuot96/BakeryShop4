@@ -82,7 +82,7 @@ export default function SignIn() {
     }
   }
 
-  const onSubmit = async e => {
+  const onSubmit = async e => { //to empty the feilds when we refresh the page
     e.preventDefault()
     const { email, password } = values
 

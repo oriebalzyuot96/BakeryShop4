@@ -121,7 +121,8 @@ import Paper from '@material-ui/core/Paper'
 import DeleteIcon from '@material-ui/icons/Delete'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography';
-
+import Button from "@material-ui/core/Button"
+ 
 import ShopContext from '../context/shop-context'
 
 const TAX_RATE = 0.08
@@ -177,6 +178,8 @@ export default function SpanningTable() {
   }, [localCart])
 
   return (
+    <div>
+    <div>
     <section>
       <Container className={classes.container}>
         <TableContainer component={Paper}>
@@ -218,7 +221,7 @@ export default function SpanningTable() {
                   <TableCell colSpan={2}>Subtotal</TableCell>
                   <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
                 </TableRow>
-                <TableRow>
+               {/* <TableRow>
                   <TableCell>Tax</TableCell>
                   <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
                   <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
@@ -226,8 +229,10 @@ export default function SpanningTable() {
                 <TableRow>
                   <TableCell colSpan={2}>Total</TableCell>
                   <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-                </TableRow>
+                </TableRow>*/}
+
               </>
+
               )}
               {cartItems.length < 1 && (
                 <Typography className={classes.title} variant="p" id="tableTitle" component="p">
@@ -237,7 +242,17 @@ export default function SpanningTable() {
             </TableBody>
           </Table>
         </TableContainer>
-    </Container>
+    </Container>  
+
     </section>
+    </div>
+
+    <div>
+
+<Button> buy</Button>
+    </div>
+
+    </div>
+
   )
 }

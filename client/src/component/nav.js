@@ -43,17 +43,23 @@ export default function ButtonAppBar() {
   const history = useHistory()
 
   const isLoggedInToken = localStorage.getItem('loggedInToken') !== null
-
+//const totalItems=0
   const totalItems = context.cart.reduce((count, curItem) => {
     return count + curItem.quantity
   }, 0)
-
+console.log(totalItems)
   const onLogoutUser = () => {
     // remove token from localStorage
     if (localStorage.getItem('loggedInToken') !== null) {
       localStorage.removeItem('loggedInToken')
     }
-    history.push('/login')
+    //localStorage.getItem('cart')
+   // totalItems=0 
+localStorage.removeItem("cart"); 
+ 
+//const (totalItems)=0
+
+ history.push('/login')
   }
 
   return (
@@ -91,10 +97,12 @@ export default function ButtonAppBar() {
           )}
 
           <Button component={RouterLink} to="/cart" color="inherit">
-            Cart {`(${totalItems})`}🛍
+            Cart 
+            
           </Button>
         </Toolbar>
       </AppBar>
     </div>
   )
 }
+
